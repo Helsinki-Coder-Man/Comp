@@ -32,7 +32,9 @@ int variable()
 int main()
 {
 //	type(T_Pos);
-	tokenize();
-	std::cout << tokenBuff[0];
-
+	tokenize(input);
+	for(unsigned int i = 0; i < tokenBuff.size() ;i++)
+	{
+		std::cout << (short)opcval(tokenBuff[i]) << ' ' << tokenBuff[i] << " END ";
+	}
 }

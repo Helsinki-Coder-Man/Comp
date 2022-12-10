@@ -11,9 +11,9 @@ unsigned int line = 0;
 int lineEntry = 0;
 std::string input = "int x;";
 std::string buff = "";
-std::vector<const std::string> tokenBuff;
+std::vector<std::string> tokenBuff;
 
-void tokenize(const std::string str)
+void tokenize(const std::string& str)
 {
 	while(line < MAX_LINES){
 		while(lineEntry < input.length())
@@ -46,7 +46,7 @@ void tokenize(const std::string str)
 	}	
 }
 
-int opcval(const std::string& token){
+short opcval(const std::string& token){
 	try
 	{
 		return tok.Opcodes[token];
