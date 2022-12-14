@@ -14,7 +14,15 @@ std::vector<var> varBuff;
 
 std::vector<unsigned int> opBuff;
 
+
+//******************************
+//*	GLOBAL VARIABLES       *
+//******************************
+//Token posisition iterator
 static unsigned int T_Pos = 0;
+
+static 
+
 
 // pointer to the "real" buffer so the program doesn't use copies. This improves performance (?)
 struct std::vector<var>* varptr = &varBuff;
@@ -27,6 +35,7 @@ void opBuffGen()
 	}	
 	
 }
+
 
 void variable()
 {	
@@ -41,13 +50,17 @@ void variable()
 			isTerm = true;
 		}
 
-	/*	if(opBuff[T_Pos + 1] != EQUALS && !isTerm)
+		if(!(opBuff[T_Pos + 1] != EQUALS && !isTerm))
+		{
+//			value();
+		}
+		else
 		{
 			std::cout << "ERROR: No equals sign or Semi. ";
 			return;
 			isTerm = true;
 		}
-	*/
+	
 
 		var tempVarName(tokenBuff[T_Pos]); 
 		varptr->push_back(tokenBuff[T_Pos]);
@@ -108,6 +121,7 @@ void type()
 int main()
 {
 //	type(T_Pos);
+	std::getline(std::cin,input);
 	tokenize(input);
 	opBuffGen();
 	std::cout << "\nintput string: " << input << ' ' << opBuff[T_Pos];
